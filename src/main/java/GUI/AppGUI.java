@@ -1,5 +1,6 @@
 package main.java.GUI;
 
+import main.java.GuiComponents.GradientPanel;
 import main.java.GuiComponents.SearchField;
 
 import javax.swing.*;
@@ -12,8 +13,11 @@ public class AppGUI extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(new Dimension(450, 620));
         setLocationRelativeTo(null);
-        setLayout(null);
+
         setResizable(false);
+
+        setContentPane(new GradientPanel());
+        setLayout(null);
 
         generateGuiComponents();
     }
@@ -27,5 +31,10 @@ public class AppGUI extends JFrame {
     {
         add(SearchField.createSearchField());
         add(SearchField.createSearchButton("assets/images/loupe.png"));
+    }
+
+    private void generateGradientBackground()
+    {
+
     }
 }

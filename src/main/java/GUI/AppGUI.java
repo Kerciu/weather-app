@@ -1,5 +1,7 @@
 package main.java.GUI;
 
+import main.java.GuiComponents.SearchField;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -12,5 +14,18 @@ public class AppGUI extends JFrame {
         setLocationRelativeTo(null);
         setLayout(null);
         setResizable(false);
+
+        generateGuiComponents();
+    }
+
+    private void generateGuiComponents()
+    {
+        generateSearchFieldComponent();
+    }
+
+    private void generateSearchFieldComponent()
+    {
+        add(SearchField.createSearchField());
+        add(SearchField.createSearchButton("assets/images/loupe.png"));
     }
 }

@@ -1,6 +1,6 @@
-package main.java.GUI.GuiComponents;
+package main.java.GuiComponents;
 
-import main.java.GUI.Utility.IconLoader;
+import main.java.Utility.IconLoader;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,6 +29,7 @@ public class SearchField {
 
     private static void addSearchButtonAttributes(JButton searchButton)
     {
-
+        searchButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        searchButton.setBounds(375, 15, 47, 45);
     }
 }

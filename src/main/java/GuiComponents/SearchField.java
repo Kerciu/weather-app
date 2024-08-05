@@ -9,15 +9,24 @@ public class SearchField {
 
     public static JTextField createSearchField()
     {
-        JTextField searchTextField = new JTextField();
+        JTextField searchTextField = new GradientTextField(
+            new GradientGenerator(new Color(0xF8EDE3), new Color(0xDFD3C3))
+        );
         addSearchFieldAttributes(searchTextField);
+        //return wrapWithGradient(searchTextField, new Color(0xFF8C9E), new Color(0xB4D6CD));
+
         return searchTextField;
     }
 
     public static JButton createSearchButton(String imagePath)
     {
-        JButton searchButton = new JButton(IconLoader.loadImageIcon(imagePath));
+        JButton searchButton = new GradientButton(
+                new GradientGenerator(new Color(0xFF8C9E), new Color(0xB4D6CD)),
+                IconLoader.loadImageIcon(imagePath)
+        );
         addSearchButtonAttributes(searchButton);
+        //return wrapWithGradient(searchButton, );
+
         return searchButton;
     }
 
@@ -25,6 +34,7 @@ public class SearchField {
     {
         searchTextField.setBounds(15, 15, 350, 45);
         searchTextField.setFont(new Font("Dialog", Font.PLAIN, 28));
+        searchTextField.setForeground(Color.BLACK);
     }
 
     private static void addSearchButtonAttributes(JButton searchButton)
@@ -32,4 +42,5 @@ public class SearchField {
         searchButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         searchButton.setBounds(375, 15, 47, 45);
     }
+
 }

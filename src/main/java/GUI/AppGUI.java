@@ -1,5 +1,6 @@
 package main.java.GUI;
 
+import main.java.GuiComponents.GradientGenerator;
 import main.java.GuiComponents.GradientPanel;
 import main.java.GuiComponents.SearchField;
 
@@ -16,7 +17,7 @@ public class AppGUI extends JFrame {
 
         setResizable(false);
 
-        setContentPane(new GradientPanel());
+        generateGradientBackground();
         setLayout(null);
 
         generateGuiComponents();
@@ -35,6 +36,9 @@ public class AppGUI extends JFrame {
 
     private void generateGradientBackground()
     {
-
+        GradientPanel gradientBackground = new GradientPanel(
+                new GradientGenerator(new Color(0xFFDA76), new Color(0xFF8C9E))
+        );
+        setContentPane(gradientBackground);
     }
 }

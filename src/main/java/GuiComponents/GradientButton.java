@@ -11,6 +11,8 @@ public class GradientButton extends JButton {
         super(imageIcon);
         this.gradientGenerator = gradientGenerator;
         setOpaque(false);
+        setContentAreaFilled(false);
+        setBorderPainted(false);
     }
 
     @Override

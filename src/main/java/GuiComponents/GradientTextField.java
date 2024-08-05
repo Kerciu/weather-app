@@ -10,6 +10,7 @@ public class GradientTextField extends JTextField {
     {
         this.gradientGenerator = gradientGenerator;
         setOpaque(false);
+        setBorder(BorderFactory.createEmptyBorder());
     }
 
     @Override

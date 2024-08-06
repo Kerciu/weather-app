@@ -16,6 +16,7 @@ public class GradientTextField extends JTextField {
     @Override
     protected void paintComponent(Graphics g)
     {
+        BorderRounder.roundComponent(this, g);
         gradientGenerator.paintComponent(this, g);
         super.paintComponent(g);
     }

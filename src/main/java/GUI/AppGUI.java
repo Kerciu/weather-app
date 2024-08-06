@@ -3,6 +3,7 @@ package main.java.GUI;
 import main.java.GuiComponents.GradientGenerator;
 import main.java.GuiComponents.GradientPanel;
 import main.java.GuiComponents.SearchField;
+import main.java.GuiComponents.WeatherConditionImageLoader;
 
 import javax.swing.*;
 import java.awt.*;
@@ -41,4 +42,11 @@ public class AppGUI extends JFrame {
         );
         setContentPane(gradientBackground);
     }
+
+    private void generateWeatherConditionImage()
+    {
+        String fileHandle = "assets/image/loupe.png"
+        JLabel weatherCond = WeatherConditionImageLoader.createImageLabel(fileHandle);
+    }
 }
+

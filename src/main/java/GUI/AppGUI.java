@@ -25,6 +25,7 @@ public class AppGUI extends JFrame {
     {
         generateSearchFieldComponent();
         generateWeatherCondition();
+        generateHumidityInformation();
     }
 
     private void generateSearchFieldComponent()
@@ -47,12 +48,25 @@ public class AppGUI extends JFrame {
         String fileHandle = "assets/images/cloudy-sunny.png";
         WeatherImageLabelGenerator weatherImageLabelGenerator  = new WeatherImageLabelGenerator(fileHandle);
 
+        JLabel weatherImage = weatherImageLabelGenerator.createImageLabel();
         JLabel temperatureText = TemperatureTextGenerator.generateLabel();
         JLabel weatherDescription = WeatherCondDescriptionMaker.createDescriptionLabel();
 
-        add(weatherImageLabelGenerator.createImageLabel());
+        add(weatherImage);
         add(temperatureText);
         add(weatherDescription);
+    }
+
+    private void generateHumidityInformation()
+    {
+        String fileHandle = "assets/images/humidity.png";
+        HumidityImageDisplayer humidityImageDisplayer = new HumidityImageDisplayer(fileHandle);
+
+        JLabel humidityImage = humidityImageDisplayer.createImageLabel();
+        JLabel humidityText = HumidityTextGenerator.generateLabel();
+
+        add(humidityImage);
+        add(humidityText);
     }
 }
 

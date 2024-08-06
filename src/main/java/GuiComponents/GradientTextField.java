@@ -20,4 +20,8 @@ public class GradientTextField extends JTextField {
         gradientGenerator.paintComponent(this, g);
         super.paintComponent(g);
     }
+
+    public Object getGradientGenerator() {
+        return gradientGenerator;
+    }
 }

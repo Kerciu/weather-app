@@ -24,4 +24,8 @@ public class GradientButton extends JButton {
         gradientGenerator.paintComponent(this, g);
         super.paintComponent(g);
     }
+
+    public Object getGradientGenerator() {
+        return gradientGenerator;
+    }
 }

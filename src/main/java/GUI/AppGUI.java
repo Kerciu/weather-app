@@ -1,6 +1,9 @@
 package main.java.GUI;
 
 import main.java.GuiComponents.*;
+import main.java.TextGenerator.HumidityTextGenerator;
+import main.java.TextGenerator.TemperatureTextGenerator;
+import main.java.TextGenerator.WeatherCondDescriptionMaker;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,6 +29,7 @@ public class AppGUI extends JFrame {
         generateSearchFieldComponent();
         generateWeatherCondition();
         generateHumidityInformation();
+        generateWindSpeedInformation();
     }
 
     private void generateSearchFieldComponent()
@@ -67,6 +71,16 @@ public class AppGUI extends JFrame {
 
         add(humidityImage);
         add(humidityText);
+    }
+
+    private void generateWindSpeedInformation()
+    {
+        String fileHandle = "assets/images/wind.png";
+        ImageLabelGenerator windImageDisplayer = new ImageLabelGenerator(fileHandle, new Rectangle(220, 500, 74, 66));
+
+        JLabel windSpeedImage = windImageDisplayer.createImageLabel();
+
+        add(windSpeedImage);
     }
 }
 

@@ -1,12 +1,10 @@
 package test.java;
 
 import main.java.GuiComponents.SearchField;
-import main.java.Utility.IconLoader;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
 
 import static org.junit.jupiter.api.Assertions.*;
 

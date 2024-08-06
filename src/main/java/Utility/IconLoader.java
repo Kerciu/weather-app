@@ -9,13 +9,17 @@ import java.io.File;
 public class IconLoader {
     private static final int SMALL_ICON_PX_SIZE = 40;
 
-    public static ImageIcon loadImageIcon(String fileHandle)
+    public static ImageIcon loadImageIcon(String fileHandle, boolean scale)
     {
         try {
             BufferedImage bufferedImage = ImageIO.read(new File(fileHandle));
-            BufferedImage scaledImage = scaleImageIcon(bufferedImage, SMALL_ICON_PX_SIZE, SMALL_ICON_PX_SIZE);
+            if (scale) {
+                BufferedImage scaledImage = scaleImageIcon(bufferedImage, SMALL_ICON_PX_SIZE, SMALL_ICON_PX_SIZE);
+                return new ImageIcon(scaledImage);
+            }
 
-            return new ImageIcon(scaledImage);
+            else return new ImageIcon(bufferedImage);
+
         }
         catch(Exception e) {
             e.printStackTrace();

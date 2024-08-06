@@ -3,7 +3,7 @@ package main.java.GUI;
 import main.java.GuiComponents.GradientGenerator;
 import main.java.GuiComponents.GradientPanel;
 import main.java.GuiComponents.SearchField;
-import main.java.GuiComponents.WeatherConditionImageLoader;
+import main.java.GuiComponents.WeatherImageLabelGenerator;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,6 +27,7 @@ public class AppGUI extends JFrame {
     private void generateGuiComponents()
     {
         generateSearchFieldComponent();
+        generateWeatherConditionImage();
     }
 
     private void generateSearchFieldComponent()
@@ -45,8 +46,11 @@ public class AppGUI extends JFrame {
 
     private void generateWeatherConditionImage()
     {
-        String fileHandle = "assets/image/loupe.png"
-        JLabel weatherCond = WeatherConditionImageLoader.createImageLabel(fileHandle);
+        // for now let it be cloudy sunny before i implement api
+        String fileHandle = "assets/images/cloudy-sunny.png";
+        WeatherImageLabelGenerator weatherImageLabelGenerator  = new WeatherImageLabelGenerator(fileHandle);
+
+        add(weatherImageLabelGenerator.createImageLabel());
     }
 }
 

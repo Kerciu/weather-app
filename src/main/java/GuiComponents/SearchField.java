@@ -22,7 +22,7 @@ public class SearchField {
     {
         JButton searchButton = new GradientButton(
                 new GradientGenerator(new Color(0xFF8C9E), new Color(0xB4D6CD)),
-                IconLoader.loadImageIcon(imagePath)
+                IconLoader.loadImageIcon(imagePath, true)
         );
         addSearchButtonAttributes(searchButton);
         //return wrapWithGradient(searchButton, );

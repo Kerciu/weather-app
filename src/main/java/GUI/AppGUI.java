@@ -1,9 +1,10 @@
 package main.java.GUI;
 
-import main.java.GuiComponents.*;
-import main.java.TextGenerator.HumidityTextGenerator;
-import main.java.TextGenerator.TemperatureTextGenerator;
-import main.java.TextGenerator.WeatherCondDescriptionMaker;
+import main.java.GUI.GuiComponents.*;
+import main.java.GUI.TextGenerator.HumidityTextGenerator;
+import main.java.GUI.TextGenerator.TemperatureTextGenerator;
+import main.java.GUI.TextGenerator.WeatherCondDescriptionMaker;
+import main.java.GUI.TextGenerator.WindSpeedTextGenerator;
 
 import javax.swing.*;
 import java.awt.*;
@@ -79,8 +80,10 @@ public class AppGUI extends JFrame {
         ImageLabelGenerator windImageDisplayer = new ImageLabelGenerator(fileHandle, new Rectangle(220, 500, 74, 66));
 
         JLabel windSpeedImage = windImageDisplayer.createImageLabel();
+        JLabel windSpeedText = WindSpeedTextGenerator.generateLabel();
 
         add(windSpeedImage);
+        add(windSpeedText);
     }
 }
 

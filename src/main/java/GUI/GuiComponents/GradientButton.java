@@ -1,16 +1,19 @@
-package main.java.GuiComponents;
+package main.java.GUI.GuiComponents;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class GradientTextField extends JTextField {
+public class GradientButton extends JButton {
     private GradientGenerator gradientGenerator;
 
-    public GradientTextField(GradientGenerator gradientGenerator)
+    public GradientButton(GradientGenerator gradientGenerator, ImageIcon imageIcon)
     {
+        super(imageIcon);
         this.gradientGenerator = gradientGenerator;
         setOpaque(false);
-        setBorder(BorderFactory.createEmptyBorder());
+        setContentAreaFilled(false);
+        setBorderPainted(false);
+        setFocusPainted(false);
     }
 
     @Override

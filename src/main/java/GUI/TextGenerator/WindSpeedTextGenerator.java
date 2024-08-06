@@ -1,4 +1,4 @@
-package main.java.TextGenerator;
+package main.java.GUI.TextGenerator;
 
 import javax.swing.*;
 import java.awt.*;
@@ -6,7 +6,7 @@ import java.awt.*;
 public class WindSpeedTextGenerator {
     public static JLabel generateLabel()
     {
-        JLabel temperatureLabel = new JLabel("30 C");
+        JLabel temperatureLabel = new JLabel("<html><b>Windspeed</b> 20km/h</html>");
         setLabelAttributes(temperatureLabel);
         return temperatureLabel;
 
@@ -14,8 +14,7 @@ public class WindSpeedTextGenerator {
 
     private static void setLabelAttributes(JLabel temperatureLabel)
     {
-        temperatureLabel.setBounds(0, 350, 450, 54);
-        temperatureLabel.setFont(new Font("Dialog", Font.BOLD, 48));
-        temperatureLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        temperatureLabel.setBounds(310, 500, 88, 55);
+        temperatureLabel.setFont(new Font("Dialog", Font.PLAIN, 16));
     }
 }

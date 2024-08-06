@@ -46,7 +46,7 @@ public class AppGUI extends JFrame {
     {
         // for now let it be cloudy sunny before i implement api
         String fileHandle = "assets/images/cloudy-sunny.png";
-        WeatherImageLabelGenerator weatherImageLabelGenerator  = new WeatherImageLabelGenerator(fileHandle);
+        ImageLabelGenerator weatherImageLabelGenerator  = new ImageLabelGenerator(fileHandle, new Rectangle(0, 125, 450, 217));
 
         JLabel weatherImage = weatherImageLabelGenerator.createImageLabel();
         JLabel temperatureText = TemperatureTextGenerator.generateLabel();
@@ -60,7 +60,7 @@ public class AppGUI extends JFrame {
     private void generateHumidityInformation()
     {
         String fileHandle = "assets/images/humidity.png";
-        HumidityImageDisplayer humidityImageDisplayer = new HumidityImageDisplayer(fileHandle);
+        ImageLabelGenerator humidityImageDisplayer = new ImageLabelGenerator(fileHandle, new Rectangle(15, 500, 74, 66));
 
         JLabel humidityImage = humidityImageDisplayer.createImageLabel();
         JLabel humidityText = HumidityTextGenerator.generateLabel();

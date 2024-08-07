@@ -31,11 +31,16 @@ public class AppGUI extends JFrame {
         generateWeatherCondition();
         generateHumidityInformation();
         generateWindSpeedInformation();
+        generateSearchButtonComponent();
     }
 
     private void generateSearchFieldComponent()
     {
         add(SearchField.createSearchField());
+    }
+
+    private void generateSearchButtonComponent()
+    {
         add(SearchField.createSearchButton("assets/images/loupe.png"));
     }
 

@@ -15,6 +15,22 @@ public class ImageLabelGenerator {
         this.bounds = bounds;
     }
 
+    public Rectangle getBounds() {
+        return bounds;
+    }
+
+    public ImageIcon getImage() {
+        return image;
+    }
+
+    public void setBounds(Rectangle bounds) {
+        this.bounds = bounds;
+    }
+
+    public void setImage(ImageIcon image) {
+        this.image = image;
+    }
+
     public JLabel createImageLabel()
     {
         JLabel humidityImageLabel = new JLabel(image);

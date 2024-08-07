@@ -1,11 +1,10 @@
-package test.java;
+package test.java.GuiTests;
 
 import main.java.GUI.Utility.IconLoader;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 import static junit.framework.TestCase.assertTrue;
@@ -25,7 +24,5 @@ public class IconLoaderTest {
         BufferedImage bufferedImage = (BufferedImage) icon.getImage();
         assertEquals("Width should be 40px", 40, bufferedImage.getWidth());
         assertEquals("Height should be 40px", 40, bufferedImage.getHeight());
-
-        new File(testImagePath).delete();
     }
 }

@@ -1,4 +1,4 @@
-package test.java;
+package test.java.GuiTests;
 
 import main.java.GUI.GuiComponents.SearchField;
 import org.junit.jupiter.api.Test;

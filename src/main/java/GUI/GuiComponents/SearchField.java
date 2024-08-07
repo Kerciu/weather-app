@@ -13,7 +13,6 @@ public class SearchField {
             new GradientGenerator(new Color(0xF8EDE3), new Color(0xDFD3C3))
         );
         addSearchFieldAttributes(searchTextField);
-        //return wrapWithGradient(searchTextField, new Color(0xFF8C9E), new Color(0xB4D6CD));
 
         return searchTextField;
     }
@@ -25,7 +24,6 @@ public class SearchField {
                 IconLoader.loadImageIcon(imagePath, true)
         );
         addSearchButtonAttributes(searchButton);
-        //return wrapWithGradient(searchButton, );
 
         return searchButton;
     }

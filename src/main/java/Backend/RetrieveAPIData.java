@@ -52,13 +52,24 @@ public class RetrieveAPIData {
         JSONArray windSpeedData = (JSONArray) hourlyData.get("wind_speed_10m");
         double windSpeed = (double) windSpeedData.get(indexOfCurrentTime);
 
-        return null;
+        return buildWeatherDataObject(weatherCondition, temperature, humidity, windSpeed);
     }
 
     public static JSONArray getGeographicCoordinates(String locationName)
     {
         locationName = locationName.replaceAll(" ", "+");
         return (JSONArray) callAPI(buildLocationURL(locationName)).get("results");
+    }
+
+    private static JSONObject buildWeatherDataObject(WeatherCondition weatherCondition, double temperature, double humidity, double windSpeed)
+    {
+        JSONObject weatherData = new JSONObject();
+        weatherData.put("weather_condition", weatherCondition);
+        weatherData.put("temperature", temperature);
+        weatherData.put("humidity", humidity);
+        weatherData.put("wind_speed", windSpeed);
+
+        return weatherData;
     }
 
     private static WeatherCondition processWeatherCode(int weatherCode)

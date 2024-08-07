@@ -13,6 +13,14 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class RetrieveAPIData {
+    private enum WeatherCondition {
+        CLEAR_SKY, CLOUDY, FOG, DRIZZLE,
+        FREEZING_DRIZZLE, RAIN, FREEZING_RAIN,
+        SNOW_FALL, SNOW_GRAINS, RAIN_SHOWERS,
+        SNOW_SHOWERS, THUNDERSTORM, HAIL_THUNDERSTORM,
+        UNIDENTIFIED
+    };
+
     public static JSONObject getWeatherData(String locationName)
     {
         JSONArray jsonArray = getGeographicCoordinates(locationName);
@@ -26,6 +34,23 @@ public class RetrieveAPIData {
         String urlString = buildStringURLwithCoordinates(latitude, longitude);
         JSONObject hourlyData = (JSONObject) callAPI(urlString).get("hourly");
         JSONArray timeData = (JSONArray) hourlyData.get("time");
+        int indexOfCurrentTime = findIndexOfCurrentTime(timeData);
+
+        // get temperature
+        JSONArray temperatureData = (JSONArray) hourlyData.get("temperature_2m");
+        double temperature = (double) temperatureData.get(indexOfCurrentTime);
+
+        // get weather code
+        JSONArray weatherCode = (JSONArray) hourlyData.get("weather_code");
+        WeatherCondition weatherCondition = processWeatherCode((int) weatherCode.get(indexOfCurrentTime));
+
+        // get humidity
+        JSONArray humidityData = (JSONArray) hourlyData.get("relative_humidity_2m");
+        double humidity = (double) humidityData.get(indexOfCurrentTime);
+
+        // get wind speed
+        JSONArray windSpeedData = (JSONArray) hourlyData.get("wind_speed_10m");
+        double windSpeed = (double) windSpeedData.get(indexOfCurrentTime);
 
         return null;
     }
@@ -36,9 +61,66 @@ public class RetrieveAPIData {
         return (JSONArray) callAPI(buildLocationURL(locationName)).get("results");
     }
 
+    private static WeatherCondition processWeatherCode(int weatherCode)
+    {
+        switch (weatherCode)
+        {
+            case 0 -> {
+                return WeatherCondition.CLEAR_SKY;
+            }
+            case 1, 2, 3 -> {
+                return WeatherCondition.CLOUDY;
+            }
+            case 45, 48 -> {
+                return WeatherCondition.FOG;
+            }
+            case 51, 53, 55 -> {
+                return WeatherCondition.DRIZZLE;
+            }
+            case 56, 57 -> {
+                return WeatherCondition.FREEZING_DRIZZLE;
+            }
+            case 61, 63, 65 -> {
+                return WeatherCondition.RAIN;
+            }
+            case 66, 67 -> {
+                return WeatherCondition.FREEZING_RAIN;
+            }
+            case 71, 73, 75 -> {
+                return WeatherCondition.SNOW_FALL;
+            }
+            case 77 -> {
+                return WeatherCondition.SNOW_GRAINS;
+            }
+            case 80, 81, 82 -> {
+                return WeatherCondition.RAIN_SHOWERS;
+            }
+            case 85, 86 -> {
+                return WeatherCondition.SNOW_SHOWERS;
+            }
+            case 95 -> {
+                return WeatherCondition.THUNDERSTORM;
+            }
+            case 96, 99 -> {
+                return WeatherCondition.HAIL_THUNDERSTORM;
+            }
+        }
+
+        return  WeatherCondition.UNIDENTIFIED;
+    }
+
     private static int findIndexOfCurrentTime(JSONArray timeData)
     {
         String currentTime = getCurrentTime();
+
+        for (int i = 0; i < timeData.size(); ++i)
+        {
+            String time = (String) timeData.get(i);
+
+            if (time.equalsIgnoreCase(currentTime)) return i;
+        }
+
+        return 0;
     }
 
     private static String getCurrentTime()

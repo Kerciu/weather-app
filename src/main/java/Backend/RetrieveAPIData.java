@@ -13,14 +13,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class RetrieveAPIData {
-    private enum WeatherCondition {
-        CLEAR_SKY, CLOUDY, FOG, DRIZZLE,
-        FREEZING_DRIZZLE, RAIN, FREEZING_RAIN,
-        SNOW_FALL, SNOW_GRAINS, RAIN_SHOWERS,
-        SNOW_SHOWERS, THUNDERSTORM, HAIL_THUNDERSTORM,
-        UNIDENTIFIED
-    };
-
     public static JSONObject getWeatherData(String locationName)
     {
         JSONArray jsonArray = getGeographicCoordinates(locationName);

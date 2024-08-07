@@ -1,6 +1,6 @@
-package main.java.GUI.GuiComponents;
+package main.java.frontend.components;
 
-import main.java.GUI.Utility.IconLoader;
+import main.java.frontend.utility.IconLoader;
 
 import javax.swing.*;
 import java.awt.*;

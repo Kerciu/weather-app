@@ -1,6 +1,6 @@
 package test.java.GuiTests;
 
-import main.java.GUI.GuiComponents.ImageLabelGenerator;
+import main.java.frontend.components.ImageLabelGenerator;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;

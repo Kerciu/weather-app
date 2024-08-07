@@ -1,6 +1,6 @@
 package test.java.GuiTests;
 
-import main.java.GUI.Utility.IconLoader;
+import main.java.frontend.utility.IconLoader;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;

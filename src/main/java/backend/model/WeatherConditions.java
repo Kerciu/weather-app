@@ -1,4 +1,4 @@
-package main.java.Backend;
+package main.java.backend.model;
 
 public enum WeatherConditions {
     CLEAR_SKY, CLOUDY, FOG, DRIZZLE,

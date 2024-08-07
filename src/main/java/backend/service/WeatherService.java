@@ -1,6 +1,9 @@
-package main.java.Backend;
+package main.java.backend.service;
 
-import main.java.Backend.WeatherConditions;
+import main.java.backend.utils.TimeUtils;
+import main.java.backend.model.WeatherConditions;
+import main.java.backend.model.WeatherData;
+import main.java.backend.api.APIUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 

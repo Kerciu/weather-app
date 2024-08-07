@@ -1,6 +1,6 @@
 package test.java.GuiTests;
 
-import main.java.GUI.GuiComponents.*;
+import main.java.frontend.components.*;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;

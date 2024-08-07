@@ -1,6 +1,6 @@
-package main.java.MainClass;
+package main.java.mainclass;
 
-import main.java.GUI.AppGUI;
+import main.java.frontend.gui.AppGUI;
 
 import javax.swing.*;
 

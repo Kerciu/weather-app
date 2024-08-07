@@ -1,6 +1,6 @@
 package test.java.GuiTests;
 
-import main.java.GUI.GuiComponents.SearchField;
+import main.java.frontend.components.SearchField;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;

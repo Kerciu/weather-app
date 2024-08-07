@@ -1,4 +1,4 @@
-package main.java.GUI.Utility;
+package main.java.frontend.utility;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

@@ -1,10 +1,10 @@
-package main.java.GUI;
+package main.java.frontend.gui;
 
-import main.java.GUI.GuiComponents.*;
-import main.java.GUI.TextGenerator.HumidityTextGenerator;
-import main.java.GUI.TextGenerator.TemperatureTextGenerator;
-import main.java.GUI.TextGenerator.WeatherCondDescriptionMaker;
-import main.java.GUI.TextGenerator.WindSpeedTextGenerator;
+import main.java.frontend.components.*;
+import main.java.frontend.text.HumidityTextGenerator;
+import main.java.frontend.text.TemperatureTextGenerator;
+import main.java.frontend.text.WeatherCondDescriptionMaker;
+import main.java.frontend.text.WindSpeedTextGenerator;
 
 import javax.swing.*;
 import java.awt.*;

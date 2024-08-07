@@ -1,4 +1,4 @@
-package main.java.Backend;
+package main.java.backend.api;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;

@@ -1,4 +1,4 @@
-package main.java.Backend;
+package main.java.backend.model;
 
 import org.json.simple.JSONObject;
 

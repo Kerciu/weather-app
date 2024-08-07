@@ -1,4 +1,4 @@
-package main.java.GUI.TextGenerator;
+package main.java.frontend.text;
 
 import javax.swing.*;
 import java.awt.*;

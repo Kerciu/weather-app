@@ -4,6 +4,7 @@ import main.java.backend.model.WeatherConditions;
 import main.java.backend.service.RetrieveAPIData;
 import main.java.frontend.components.*;
 import main.java.frontend.text.*;
+import main.java.frontend.utility.CountryImageResolver;
 import main.java.frontend.utility.WeatherStateResolver;
 import org.json.simple.JSONObject;
 
@@ -69,8 +70,11 @@ public class AppGUI extends JFrame {
         return new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                weatherData = RetrieveAPIData.getWeatherData(processUserInput());
-                if (weatherData != null)
+                String userInput = processUserInput();
+                weatherData = RetrieveAPIData.getWeatherData(userInput);
+                locationData = RetrieveAPIData.getLocationAndCountry(userInput);
+
+                if (weatherData != null && locationData != null)
                 {
                     WeatherConditions cond = parseWeatherCondition();
                     updateWeatherInformation(cond);
@@ -168,11 +172,14 @@ public class AppGUI extends JFrame {
 
     private void generateLocationInformation()
     {
-        String fileHandle = "assets/images/countries/poland.png";
+        String locationName = (locationData != null) ? (String) locationData.get("name") : "N/A";
+        String countryName = (locationData != null) ? (String) locationData.get("country") : "N/A";
+
+        String fileHandle = CountryImageResolver.getCountryImagePath(countryName);
         ImageLabelGenerator countryImageDisplayer = new ImageLabelGenerator(fileHandle, new Rectangle(0, 56, 74, 66));
 
         JLabel countryFlagImage = countryImageDisplayer.createImageLabel();
-        JLabel locationText = LocationTextGenerator.createDescriptionLabel("Warsaw, Poland");
+        JLabel locationText = LocationTextGenerator.createDescriptionLabel(locationName+ ", " + countryName);
 
         add(countryFlagImage);
         add(locationText);

@@ -104,8 +104,6 @@ public class AppGUI extends JFrame {
         switch (cond) {
             case SUNNY:
                 return assetsPath + "sunny.png";
-            case SUNNY_CLOUDY:
-                return assetsPath + "sunny-cloudy.png";
             case CLOUDY:
                 return assetsPath + "cloudy.png";
             case FOG:

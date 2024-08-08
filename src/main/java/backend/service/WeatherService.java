@@ -92,8 +92,9 @@ public class WeatherService {
             case 96, 99 -> {
                 return WeatherConditions.HAIL_THUNDERSTORM;
             }
+            default -> {
+                return WeatherConditions.UNIDENTIFIED;
+            }
         }
-
-        return  WeatherConditions.UNIDENTIFIED;
     }
 }

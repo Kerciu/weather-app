@@ -1,5 +1,6 @@
 package main.java.backend.service;
 
+import main.java.backend.model.LocationData;
 import main.java.backend.model.WeatherData;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -13,9 +14,26 @@ public class RetrieveAPIData {
         return getWeatherDataRelativeToLocation(coordinatesArray).toJSON();
     }
 
+    public static JSONObject getLocationAndCountry(String locationName)
+    {
+        JSONArray coordinatesArray = createCoordinatesArray(locationName);
+        if (coordinatesArray == null || coordinatesArray.isEmpty()) return null;
+
+        return getLocationDataRelativeToLocation(coordinatesArray).toJSON();
+    }
+
     private static JSONArray createCoordinatesArray(String locationName)
     {
         return GeocodingService.getGeographicCoordinates(locationName);
+    }
+
+    private static LocationData getLocationDataRelativeToLocation(JSONArray coordinatesArray)
+    {
+        JSONObject locationJsonArray = (JSONObject) coordinatesArray.get(0);
+        String location = (String) locationJsonArray.get("name");
+        String country = (String) locationJsonArray.get("country");
+
+        return new LocationData(location, country);
     }
 
     private static WeatherData getWeatherDataRelativeToLocation(JSONArray coordinatesArray)

@@ -3,10 +3,7 @@ package main.java.frontend.gui;
 import main.java.backend.model.WeatherConditions;
 import main.java.backend.service.RetrieveAPIData;
 import main.java.frontend.components.*;
-import main.java.frontend.text.HumidityTextGenerator;
-import main.java.frontend.text.TemperatureTextGenerator;
-import main.java.frontend.text.WeatherCondDescriptionMaker;
-import main.java.frontend.text.WindSpeedTextGenerator;
+import main.java.frontend.text.*;
 import org.json.simple.JSONObject;
 
 import javax.swing.*;
@@ -186,10 +183,12 @@ public class AppGUI extends JFrame {
         JLabel weatherImage = weatherImageLabelGenerator.createImageLabel();
         JLabel weatherDescription = WeatherCondDescriptionMaker.createDescriptionLabel(description);
         JLabel temperatureDescription = TemperatureTextGenerator.generateLabel(temperatureVal);
+        JLabel locationText = LocationTextGenerator.createDescriptionLabel("abc"); //for now
 
         add(weatherImage);
         add(weatherDescription);
         add(temperatureDescription);
+        add(locationText);
     }
 
     private void generateHumidityInformation()
@@ -216,6 +215,12 @@ public class AppGUI extends JFrame {
 
         add(windSpeedImage);
         add(windSpeedText);
+    }
+
+    private void generateLocationInformation()
+    {
+        JLabel locationText = LocationTextGenerator.createDescriptionLabel("abc");
+        add(locationText);
     }
 }
 

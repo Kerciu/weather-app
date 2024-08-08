@@ -4,6 +4,7 @@ import main.java.backend.model.WeatherConditions;
 import main.java.backend.service.RetrieveAPIData;
 import main.java.frontend.components.*;
 import main.java.frontend.text.*;
+import main.java.frontend.utility.WeatherStateResolver;
 import org.json.simple.JSONObject;
 
 import javax.swing.*;
@@ -13,6 +14,7 @@ import java.awt.event.ActionListener;
 
 public class AppGUI extends JFrame {
     private JSONObject weatherData;
+    private JSONObject locationData;
     private JTextField searchField;
     private JButton searchButton;
 
@@ -99,39 +101,11 @@ public class AppGUI extends JFrame {
     }
 
     private String createWeatherImagePath(WeatherConditions cond) {
-        String assetsPath = "assets/images/weather/";
-        return switch (cond) {
-            case SUNNY -> assetsPath + "sunny.png";
-            case CLOUDY -> assetsPath + "cloudy.png";
-            case FOG -> assetsPath + "foggy.png";
-            case DRIZZLE -> assetsPath + "drizzle.png";
-            case RAIN -> assetsPath + "rainy.png";
-            case SLEET -> assetsPath + "sleet.png";
-            case SNOWY -> assetsPath + "snowy.png";
-            case DOWNPOUR -> assetsPath + "downpour.png";
-            case SNOWSTORM -> assetsPath + "snowstorm.png";
-            case THUNDERSTORM -> assetsPath + "dark-and-stormy.png";
-            case HAIL_THUNDERSTORM -> assetsPath + "hail.png";
-            default -> assetsPath + "cloudy-sunny.png";
-        };
+        return WeatherStateResolver.getWeatherImagePath(cond);
     }
 
     private String getWeatherConditionName(WeatherConditions cond) {
-        return switch (cond) {
-            case SUNNY -> "Sunny";
-            case SUNNY_CLOUDY -> "Sunny with Clouds";
-            case CLOUDY -> "Cloudy";
-            case FOG -> "Foggy";
-            case DRIZZLE -> "Drizzle";
-            case RAIN -> "Rainy";
-            case SLEET -> "Sleet";
-            case SNOWY -> "Snowy";
-            case DOWNPOUR -> "Downpour";
-            case SNOWSTORM -> "Snowstorm";
-            case THUNDERSTORM -> "Thunderstorm";
-            case HAIL_THUNDERSTORM -> "Hail with Thunderstorm";
-            default -> "Unidentified Weather Condition";
-        };
+        return WeatherStateResolver.getWeatherConditionName(cond);
     }
 
     private String processUserInput()

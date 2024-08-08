@@ -19,7 +19,7 @@ public class TextGeneratorsTest {
     @Test
     public void testWeatherCondDescription()
     {
-        JLabel label = WeatherCondDescriptionMaker.createDescriptionLabel();
+        JLabel label = WeatherCondDescriptionMaker.createDescriptionLabel("Sunny");
 
         Rectangle bounds = label.getBounds();
 
@@ -40,7 +40,7 @@ public class TextGeneratorsTest {
     @Test
     public void testTemperatureText()
     {
-        JLabel label = TemperatureTextGenerator.generateLabel();
+        JLabel label = TemperatureTextGenerator.generateLabel(20.5);
 
         Rectangle bounds = label.getBounds();
         assertNotNull(label, "Label should not be null");
@@ -60,7 +60,7 @@ public class TextGeneratorsTest {
     @Test
     public void testHumidityText()
     {
-        JLabel label = HumidityTextGenerator.generateLabel();
+        JLabel label = HumidityTextGenerator.generateLabel(50.0);
 
         Rectangle bounds = label.getBounds();
 
@@ -82,7 +82,7 @@ public class TextGeneratorsTest {
     @Test
     public void testWindspeedText()
     {
-        JLabel label = WindSpeedTextGenerator.generateLabel();
+        JLabel label = WindSpeedTextGenerator.generateLabel(20.0);
 
         Rectangle bounds = label.getBounds();
 

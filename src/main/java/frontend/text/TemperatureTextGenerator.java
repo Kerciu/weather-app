@@ -4,9 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class TemperatureTextGenerator {
-    public static JLabel generateLabel()
+    public static JLabel generateLabel(double temperature)
     {
-        JLabel temperatureLabel = new JLabel("30 C");
+        JLabel temperatureLabel = new JLabel(temperature+" °C");
         setLabelAttributes(temperatureLabel);
         return temperatureLabel;
 

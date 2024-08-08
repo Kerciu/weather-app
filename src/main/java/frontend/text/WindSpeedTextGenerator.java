@@ -4,9 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class WindSpeedTextGenerator {
-    public static JLabel generateLabel()
+    public static JLabel generateLabel(double currentWindSpeed)
     {
-        JLabel temperatureLabel = new JLabel("<html><b>Windspeed</b> 20km/h</html>");
+        JLabel temperatureLabel = new JLabel("<html><b>Windspeed</b> "+currentWindSpeed+"km/h</html>");
         setLabelAttributes(temperatureLabel);
         return temperatureLabel;
 

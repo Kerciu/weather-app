@@ -4,9 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class WeatherCondDescriptionMaker {
-    public static JLabel createDescriptionLabel()
+    public static JLabel createDescriptionLabel(String description)
     {
-        JLabel descriptionLabel = new JLabel("Cloudy-Sunny");
+        JLabel descriptionLabel = new JLabel(description);
         setLabelAttributes(descriptionLabel);
         return descriptionLabel;
     }

@@ -4,10 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class HumidityTextGenerator {
-    public static JLabel generateLabel()
+    public static JLabel generateLabel(double currentHumidity)
     {
         JLabel humidityLabel = new JLabel(
-                "<html><b>Humidity</b> 100%</html>"
+                "<html><b>Humidity</b> "+currentHumidity+"%</html>"
         );
         setLabelAttributes(humidityLabel);
         return humidityLabel;

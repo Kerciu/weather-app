@@ -45,6 +45,7 @@ public class AppGUI extends JFrame {
         generateWeatherCondition(null);
         generateHumidityInformation();
         generateWindSpeedInformation();
+        generateLocationInformation();
         generateSearchButtonComponent();
     }
 
@@ -56,7 +57,7 @@ public class AppGUI extends JFrame {
 
     private void generateSearchButtonComponent()
     {
-        searchButton = SearchField.createSearchButton("assets/images/loupe.png");
+        searchButton = SearchField.createSearchButton("assets/images/utils/loupe.png");
         searchButton.addActionListener(createButtonActionListener());
         add(searchButton);
     }
@@ -88,6 +89,7 @@ public class AppGUI extends JFrame {
         generateWeatherCondition(cond);
         generateHumidityInformation();
         generateWindSpeedInformation();
+        generateLocationInformation();
 
         add(searchField);
         add(searchButton);
@@ -97,64 +99,39 @@ public class AppGUI extends JFrame {
     }
 
     private String createWeatherImagePath(WeatherConditions cond) {
-        String assetsPath = "assets/images/";
-        switch (cond) {
-            case SUNNY:
-                return assetsPath + "sunny.png";
-            case CLOUDY:
-                return assetsPath + "cloudy.png";
-            case FOG:
-                return assetsPath + "foggy.png";
-            case DRIZZLE:
-                return assetsPath + "drizzle.png";
-            case RAIN:
-                return assetsPath + "rainy.png";
-            case SLEET:
-                return assetsPath + "sleet.png";
-            case SNOWY:
-                return assetsPath + "snowy.png";
-            case DOWNPOUR:
-                return assetsPath + "downpour.png";
-            case SNOWSTORM:
-                return assetsPath + "snowstorm.png";
-            case THUNDERSTORM:
-                return assetsPath + "dark-and-stormy.png";
-            case HAIL_THUNDERSTORM:
-                return assetsPath + "hail.png";
-            default:
-                return assetsPath + "cloudy-sunny.png";
-        }
+        String assetsPath = "assets/images/weather/";
+        return switch (cond) {
+            case SUNNY -> assetsPath + "sunny.png";
+            case CLOUDY -> assetsPath + "cloudy.png";
+            case FOG -> assetsPath + "foggy.png";
+            case DRIZZLE -> assetsPath + "drizzle.png";
+            case RAIN -> assetsPath + "rainy.png";
+            case SLEET -> assetsPath + "sleet.png";
+            case SNOWY -> assetsPath + "snowy.png";
+            case DOWNPOUR -> assetsPath + "downpour.png";
+            case SNOWSTORM -> assetsPath + "snowstorm.png";
+            case THUNDERSTORM -> assetsPath + "dark-and-stormy.png";
+            case HAIL_THUNDERSTORM -> assetsPath + "hail.png";
+            default -> assetsPath + "cloudy-sunny.png";
+        };
     }
 
     private String getWeatherConditionName(WeatherConditions cond) {
-        switch (cond) {
-            case SUNNY:
-                return "Sunny";
-            case SUNNY_CLOUDY:
-                return "Sunny with Clouds";
-            case CLOUDY:
-                return "Cloudy";
-            case FOG:
-                return "Foggy";
-            case DRIZZLE:
-                return "Drizzle";
-            case RAIN:
-                return "Rainy";
-            case SLEET:
-                return "Sleet";
-            case SNOWY:
-                return "Snowy";
-            case DOWNPOUR:
-                return "Downpour";
-            case SNOWSTORM:
-                return "Snowstorm";
-            case THUNDERSTORM:
-                return "Thunderstorm";
-            case HAIL_THUNDERSTORM:
-                return "Hail with Thunderstorm";
-            default:
-                return "Unidentified Weather Condition";
-        }
+        return switch (cond) {
+            case SUNNY -> "Sunny";
+            case SUNNY_CLOUDY -> "Sunny with Clouds";
+            case CLOUDY -> "Cloudy";
+            case FOG -> "Foggy";
+            case DRIZZLE -> "Drizzle";
+            case RAIN -> "Rainy";
+            case SLEET -> "Sleet";
+            case SNOWY -> "Snowy";
+            case DOWNPOUR -> "Downpour";
+            case SNOWSTORM -> "Snowstorm";
+            case THUNDERSTORM -> "Thunderstorm";
+            case HAIL_THUNDERSTORM -> "Hail with Thunderstorm";
+            default -> "Unidentified Weather Condition";
+        };
     }
 
     private String processUserInput()
@@ -174,7 +151,7 @@ public class AppGUI extends JFrame {
 
     private void generateWeatherCondition(WeatherConditions condition)
     {
-        String fileHandle = (condition != null) ? createWeatherImagePath(condition) : "assets/images/cloudy-sunny.png";
+        String fileHandle = (condition != null) ? createWeatherImagePath(condition) : "assets/images/weather/cloudy-sunny.png";
         String description = (condition != null) ? getWeatherConditionName(condition) : "Sunny with Clouds";
         double temperatureVal = (weatherData != null) ? (Double) weatherData.get("temperature") : 20.0;
 
@@ -183,17 +160,15 @@ public class AppGUI extends JFrame {
         JLabel weatherImage = weatherImageLabelGenerator.createImageLabel();
         JLabel weatherDescription = WeatherCondDescriptionMaker.createDescriptionLabel(description);
         JLabel temperatureDescription = TemperatureTextGenerator.generateLabel(temperatureVal);
-        JLabel locationText = LocationTextGenerator.createDescriptionLabel("abc"); //for now
 
         add(weatherImage);
         add(weatherDescription);
         add(temperatureDescription);
-        add(locationText);
     }
 
     private void generateHumidityInformation()
     {
-        String fileHandle = "assets/images/humidity.png";
+        String fileHandle = "assets/images/utils/humidity.png";
         double currentHumidity = (weatherData != null ? (Double) weatherData.get("humidity") : 0.0);
         ImageLabelGenerator humidityImageDisplayer = new ImageLabelGenerator(fileHandle, new Rectangle(15, 500, 74, 66));
 
@@ -206,7 +181,7 @@ public class AppGUI extends JFrame {
 
     private void generateWindSpeedInformation()
     {
-        String fileHandle = "assets/images/wind.png";
+        String fileHandle = "assets/images/utils/wind.png";
         double currentWindspeed = (weatherData != null ? (Double) weatherData.get("wind_speed") : 0.0);
         ImageLabelGenerator windImageDisplayer = new ImageLabelGenerator(fileHandle, new Rectangle(220, 500, 74, 66));
 
@@ -219,7 +194,13 @@ public class AppGUI extends JFrame {
 
     private void generateLocationInformation()
     {
-        JLabel locationText = LocationTextGenerator.createDescriptionLabel("abc");
+        String fileHandle = "assets/images/countries/poland.png";
+        ImageLabelGenerator countryImageDisplayer = new ImageLabelGenerator(fileHandle, new Rectangle(0, 56, 74, 66));
+
+        JLabel countryFlagImage = countryImageDisplayer.createImageLabel();
+        JLabel locationText = LocationTextGenerator.createDescriptionLabel("Warsaw, Poland");
+
+        add(countryFlagImage);
         add(locationText);
     }
 }

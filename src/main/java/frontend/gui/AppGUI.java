@@ -18,6 +18,7 @@ public class AppGUI extends JFrame {
     private JSONObject locationData;
     private JTextField searchField;
     private JButton searchButton;
+    private ColorClimate GUIColors;
 
     public AppGUI()
     {
@@ -135,6 +136,21 @@ public class AppGUI extends JFrame {
                 new GradientGenerator(new Color(0xFFDA76), new Color(0xFF8C9E))
         );
         setContentPane(gradientBackground);
+    }
+
+    private void generateGradientBackground(WeatherConditions condition)
+    {
+        drawAppropriateGUIColor(condition);
+        GradientPanel gradientBackground = new GradientPanel(
+                new GradientGenerator(new Color(0xFFDA76), new Color(0xFF8C9E))
+        );
+        setContentPane(gradientBackground);
+    }
+
+    private void drawAppropriateGUIColor(WeatherConditions condition)
+    {
+        // default new Color(0xFFDA76), new Color(0xFF8C9E)
+            GUIColors = new ColorClimate(condition);
     }
 
     private void generateWeatherCondition(WeatherConditions condition)

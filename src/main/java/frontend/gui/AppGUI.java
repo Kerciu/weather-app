@@ -88,6 +88,16 @@ public class AppGUI extends JFrame {
         return (WeatherConditions) weatherData.get("weather_condition");
     }
 
+    private String parseLocationName()
+    {
+        return (String) locationData.get("name");
+    }
+
+    private String parseCountryName()
+    {
+        return (String) locationData.get("country");
+    }
+
     private void updateWeatherInformation(WeatherConditions cond)
     {
         getContentPane().removeAll();
@@ -172,8 +182,8 @@ public class AppGUI extends JFrame {
 
     private void generateLocationInformation()
     {
-        String locationName = (locationData != null) ? (String) locationData.get("name") : "N/A";
-        String countryName = (locationData != null) ? (String) locationData.get("country") : "N/A";
+        String locationName = (locationData != null) ? parseLocationName() : "N/A";
+        String countryName = (locationData != null) ? parseCountryName() : "N/A";
 
         String fileHandle = CountryImageResolver.getCountryImagePath(countryName);
         ImageLabelGenerator countryImageDisplayer = new ImageLabelGenerator(fileHandle, new Rectangle(0, 56, 74, 66));

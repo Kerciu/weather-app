@@ -15,7 +15,7 @@ public class LocationData {
     public JSONObject toJSON()
     {
         JSONObject locationData = new JSONObject();
-        locationData.put("location", location);
+        locationData.put("name", location);
         locationData.put("country", country);
 
         return locationData;

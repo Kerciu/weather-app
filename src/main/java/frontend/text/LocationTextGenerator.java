@@ -13,8 +13,8 @@ public class LocationTextGenerator {
 
     private static void setLabelAttributes(JLabel locationLabel)
     {
-        locationLabel.setBounds(5, 67, 250, 45);
+        locationLabel.setBounds(65, 67, 400, 45);
         locationLabel.setFont(new Font("Dialog", Font.PLAIN, 18));
-        locationLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        locationLabel.setHorizontalAlignment(SwingConstants.LEFT);
     }
 }

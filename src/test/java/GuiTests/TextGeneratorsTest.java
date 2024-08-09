@@ -1,15 +1,13 @@
 package test.java.GuiTests;
 
-import main.java.frontend.text.HumidityTextGenerator;
-import main.java.frontend.text.TemperatureTextGenerator;
-import main.java.frontend.text.WeatherCondDescriptionMaker;
-import main.java.frontend.text.WindSpeedTextGenerator;
+import main.java.frontend.text.*;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
 
 import java.awt.*;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -98,5 +96,35 @@ public class TextGeneratorsTest {
         assertEquals("Dialog", label.getFont().getName());
         assertEquals(Font.PLAIN, label.getFont().getStyle());
         assertEquals(16, label.getFont().getSize());
+    }
+
+    @org.junit.Test
+    @Test
+    public void testLocationText()
+    {
+        String longFranceDesc = "Nice, Alpes-Maritimes département, Provence–Alpes–Côte-d'Azur région, southeastern France";
+        JLabel labelDefault = LocationTextGenerator.createDescriptionLabel("Donetsk, Ukraine");
+        JLabel labelWrapped = LocationTextGenerator.createDescriptionLabel(longFranceDesc);
+
+        assertTrue(labelWrapped.getText().contains("<br>"));
+        assertFalse(labelDefault.getText().contains("<br>"));
+        assertNotNull(labelDefault);
+        assertNotNull(labelWrapped);
+
+        assertEquals(65, labelDefault.getX());
+        assertEquals(67, labelDefault.getY());
+        assertEquals(400, labelDefault.getWidth());
+        assertEquals(45, calculateLabelHeight(labelDefault.getText()));
+
+        assertEquals(65, labelWrapped.getX());
+        assertEquals(58, labelWrapped.getY());
+        assertEquals(400, labelWrapped.getWidth());
+        assertEquals(65, calculateLabelHeight(labelWrapped.getText()));
+
+    }
+
+    private static int calculateLabelHeight(String description) {
+        int lines = description.split("<br>").length;
+        return 45 + (lines - 1) * 20;
     }
 }

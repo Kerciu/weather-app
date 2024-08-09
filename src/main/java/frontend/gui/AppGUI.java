@@ -14,7 +14,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /*
-    #TODO wrap text of location when its size is greater than some bounds
     #TODO add appropriate gradient background to every weather state
     #TODO add nighttime icons, fetch time and create approriate gui
  */

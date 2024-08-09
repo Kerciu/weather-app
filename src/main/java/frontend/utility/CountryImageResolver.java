@@ -47,7 +47,7 @@ public class CountryImageResolver {
             case "croatia" -> flagsPath + "croatia.png";
             case "cuba" -> flagsPath + "cuba.png";
             case "cyprus" -> flagsPath + "cyprus.png";
-            case "czech republic" -> flagsPath + "czech-republic.png";
+            case "czech republic", "czechia" -> flagsPath + "czech-republic.png";
             case "denmark" -> flagsPath + "denmark.png";
             case "djibouti" -> flagsPath + "djibouti.png";
             case "dominica" -> flagsPath + "dominica.png";

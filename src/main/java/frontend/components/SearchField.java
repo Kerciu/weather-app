@@ -17,10 +17,10 @@ public class SearchField {
         return searchTextField;
     }
 
-    public static JButton createSearchButton(String imagePath)
+    public static JButton createSearchButton(String imagePath, Color topColor, Color bottomColor)
     {
         JButton searchButton = new GradientButton(
-                new GradientGenerator(new Color(0xFF8C9E), new Color(0xB4D6CD)),
+                new GradientGenerator(topColor, bottomColor),
                 IconLoader.loadImageIcon(imagePath, true)
         );
         addSearchButtonAttributes(searchButton);

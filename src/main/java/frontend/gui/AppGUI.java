@@ -54,7 +54,7 @@ public class AppGUI extends JFrame {
         generateWeatherCondition(null);
         generateHumidityInformation();
         generateWindSpeedInformation();
-        generateLocationInformation();
+        if (locationData != null) generateLocationInformation();
         generateSearchButtonComponent();
     }
 
@@ -66,7 +66,10 @@ public class AppGUI extends JFrame {
 
     private void generateSearchButtonComponent()
     {
-        searchButton = SearchField.createSearchButton("assets/images/utils/loupe.png");
+        String buttonImagePath = "assets/images/utils/loupe.png";
+        Color[] colors = (GUIColors != null) ? GUIColors.getButtonGradientColors() : new Color[]{new Color(0xF8EDE3), new Color(0xDFD3C3)};
+
+        searchButton = SearchField.createSearchButton(buttonImagePath, colors[0], colors[1]);
         searchButton.addActionListener(createButtonActionListener());
         add(searchButton);
     }
@@ -117,7 +120,7 @@ public class AppGUI extends JFrame {
         generateLocationInformation();
 
         add(searchField);
-        add(searchButton);
+        generateSearchButtonComponent();
 
         revalidate();
         repaint();

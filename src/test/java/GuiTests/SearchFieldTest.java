@@ -27,7 +27,7 @@ public class SearchFieldTest {
         String testImagePath = "src/test/resources/testImage.png";
         // Ensure the image file exists
 
-        JButton searchButton = SearchField.createSearchButton(testImagePath);
+        JButton searchButton = SearchField.createSearchButton(testImagePath, Color.BLACK, Color.CYAN);
 
         assertNotNull(searchButton, "Search button should not be null");
         assertEquals(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR), searchButton.getCursor(), "Cursor should be HAND_CURSOR");

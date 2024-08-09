@@ -6,51 +6,76 @@ import java.awt.*;
 
 public class ColorClimate {
     private WeatherConditions condition;
-    private final Color[] sunny = {new Color(0x36BA98ff), new Color(0xE9C46Aff), new Color(0xF4A261ff), new Color(0xE76F51ff)};
-    private final Color[] sunnyCloudy = {new Color(0xF3FEB8ff), new Color(0xFFDE4Dff), new Color(0xFFB22Cff), new Color(0xFF4C4Cff)};
-    private final Color[] cloudy = {new Color(0xFFFDB5ff), new Color(0x6FDCE3ff), new Color(0x5C88C4ff), new Color(0x5C2FC2ff)};
-    private final Color[] foggy = {new Color(0x538392ff), new Color(0x6295A2ff), new Color(0x80B9ADff), new Color(0xB3E2A7ff)};
-    private final Color[] drizzly = {new Color(0x5A639Cff), new Color(0x7776B3ff), new Color(0x9B86BDff), new Color(0xE2BBE9)};
-    private final Color[] rainy = {new Color(0x615EFCff), new Color(0x7E8EF1ff), new Color(0xD1D8C5ff), new Color(0xEEEEEEff)};
-    private final Color[] snowy = {new Color(0x6482ADff), new Color(0x7FA1C3ff), new Color(0xE2DAD6ff), new Color(0xF5EDEDff)};
-    private final Color[] downpour = {new Color(0x190482ff), new Color(0x7752FEff), new Color(0x8E8FFA), new Color(0xC2D9FFff)};
-    private final Color[] sleet = {new Color(0xEEF5FFff), new Color(0xB4D4FFff), new Color(0x86B6F6ff), new Color(0x176B87ff)};
-    private final Color[] snowstorm = {new Color(0xECF2FFff), new Color(0x3E54ACff), new Color(0x655DBBff), new Color(0xBFACE2ff)};
-    private final Color[] thunderstorm = {new Color(0xFF204Eff), new Color(0xA0153Eff), new Color(0x5D0E41ff), new Color(0x00224Dff)};
-    private final Color[] hail = {new Color(0x3F0071ff), new Color(0xFB2576ff), new Color(0x332FD0ff), new Color(0xC4E4FFff)};
-    private final Color[] defaultColors = {new Color(0xEF5A6Fff), new Color(0xFFF1DBff), new Color(0xD4BDACff), new Color(0x536493ff)};
 
-    /*
-    public enum WeatherConditions {
-        SUNNY, SUNNY_CLOUDY, CLOUDY, FOG, DRIZZLE,
-        RAIN, SNOWY, DOWNPOUR, SLEET,
-        SNOWSTORM, THUNDERSTORM, HAIL_THUNDERSTORM,
-        UNIDENTIFIED
-    } */
+    // background colors
+    private static final Color[] SUNNY = {new Color(0xFFD700), new Color(0xFF8C00), new Color(0xFF4500), new Color(0xFF6347)};
+    private static final Color[] SUNNY_CLOUDY = {new Color(0xFCE205), new Color(0xFFB22C), new Color(0xFFA07A), new Color(0xF0E68C)};
+    private static final Color[] CLOUDY = {new Color(0xB0C4DE), new Color(0x4682B4), new Color(0x4169E1), new Color(0x1E90FF)};
+    private static final Color[] FOGGY = {new Color(0xD3D3D3), new Color(0xB0B0B0), new Color(0xC0C0C0), new Color(0xF0F8FF)};
+    private static final Color[] DRIZZLY = {new Color(0x7B68EE), new Color(0xB0E0E6), new Color(0xD8BFD8), new Color(0xE6E6FA)};
+    private static final Color[] RAINY = {new Color(0x4682B4), new Color(0x87CEFA), new Color(0xB0C4DE), new Color(0xADD8E6)};
+    private static final Color[] SNOWY = {new Color(0xE0FFFF), new Color(0xB0C4DE), new Color(0xDCDCDC), new Color(0xF8F8FF)};
+    private static final Color[] DOWNPOUR = {new Color(0x00008B), new Color(0x4B0082), new Color(0x6A5ACD), new Color(0x8A2BE2)};
+    private static final Color[] SLEET = {new Color(0xF0F8FF), new Color(0xB0E0E6), new Color(0xADD8E6), new Color(0x4682B4)};
+    private static final Color[] SNOWSTORM = {new Color(0xF0F8FF), new Color(0x1E90FF), new Color(0x6A5ACD), new Color(0xB0C4DE)};
+    private static final Color[] THUNDERSTORM = {new Color(0xFF4500), new Color(0xB22222), new Color(0x4B0082), new Color(0x00008B)};
+    private static final Color[] HAIL = {new Color(0x4B0082), new Color(0x8A2BE2), new Color(0x6A5ACD), new Color(0xD3D3D3)};
+    private static final Color[] DEFAULT_COLORS = {new Color(0xEF5A6F), new Color(0xFFF1DB), new Color(0xD4BDAC), new Color(0x536493)};
+
+    // button colors
+    private static final Color[] BUTTON_GRADIENT_SUNNY = {new Color(0xFCE205), new Color(0xFF8C00)};
+    private static final Color[] BUTTON_GRADIENT_SUNNY_CLOUDY = {new Color(0xF3FEB8), new Color(0xFFB22C)};
+    private static final Color[] BUTTON_GRADIENT_CLOUDY = {new Color(0xB0C4DE), new Color(0x4682B4)};
+    private static final Color[] BUTTON_GRADIENT_FOG = {new Color(0xC0C0C0), new Color(0xD3D3D3)};
+    private static final Color[] BUTTON_GRADIENT_DRIZZLE = {new Color(0x7B68EE), new Color(0xD8BFD8)};
+    private static final Color[] BUTTON_GRADIENT_RAIN = {new Color(0x4682B4), new Color(0x87CEFA)};
+    private static final Color[] BUTTON_GRADIENT_SNOWY = {new Color(0xE0FFFF), new Color(0xB0C4DE)};
+    private static final Color[] BUTTON_GRADIENT_DOWNPOUR = {new Color(0x00008B), new Color(0x8A2BE2)};
+    private static final Color[] BUTTON_GRADIENT_SLEET = {new Color(0xF0F8FF), new Color(0xADD8E6)};
+    private static final Color[] BUTTON_GRADIENT_SNOWSTORM = {new Color(0xF0F8FF), new Color(0x1E90FF)};
+    private static final Color[] BUTTON_GRADIENT_THUNDERSTORM = {new Color(0xFF4500), new Color(0xB22222)};
+    private static final Color[] BUTTON_GRADIENT_HAIL = {new Color(0x4B0082), new Color(0xFF69B4)};
+    private static final Color[] BUTTON_GRADIENT_DEFAULT = {new Color(0xEF5A6F), new Color(0xFFF1DB)};
 
     public ColorClimate(WeatherConditions condition)
     {
         this.condition = condition;
     }
 
-    public Color[] getColorPalette()
-    {
+    public Color[] getColorPalette() {
         return switch (condition) {
-            case SUNNY -> sunny;
-            case SUNNY_CLOUDY -> sunnyCloudy;
-            case CLOUDY -> cloudy;
-            case FOG -> foggy;
-            case DRIZZLE -> drizzly;
-            case RAIN -> rainy;
-            case SNOWY -> snowy;
-            case DOWNPOUR -> downpour;
-            case SLEET -> sleet;
-            case SNOWSTORM -> snowstorm;
-            case THUNDERSTORM -> thunderstorm;
-            case HAIL_THUNDERSTORM -> hail;
-            default -> defaultColors;
+            case SUNNY -> SUNNY;
+            case SUNNY_CLOUDY -> SUNNY_CLOUDY;
+            case CLOUDY -> CLOUDY;
+            case FOG -> FOGGY;
+            case DRIZZLE -> DRIZZLY;
+            case RAIN -> RAINY;
+            case SNOWY -> SNOWY;
+            case DOWNPOUR -> DOWNPOUR;
+            case SLEET -> SLEET;
+            case SNOWSTORM -> SNOWSTORM;
+            case THUNDERSTORM -> THUNDERSTORM;
+            case HAIL_THUNDERSTORM -> HAIL;
+            default -> DEFAULT_COLORS;
         };
+    }
 
+    public Color[] getButtonGradientColors() {
+        return switch (condition) {
+            case SUNNY -> BUTTON_GRADIENT_SUNNY;
+            case SUNNY_CLOUDY -> BUTTON_GRADIENT_SUNNY_CLOUDY;
+            case CLOUDY -> BUTTON_GRADIENT_CLOUDY;
+            case FOG -> BUTTON_GRADIENT_FOG;
+            case DRIZZLE -> BUTTON_GRADIENT_DRIZZLE;
+            case RAIN -> BUTTON_GRADIENT_RAIN;
+            case SNOWY -> BUTTON_GRADIENT_SNOWY;
+            case DOWNPOUR -> BUTTON_GRADIENT_DOWNPOUR;
+            case SLEET -> BUTTON_GRADIENT_SLEET;
+            case SNOWSTORM -> BUTTON_GRADIENT_SNOWSTORM;
+            case THUNDERSTORM -> BUTTON_GRADIENT_THUNDERSTORM;
+            case HAIL_THUNDERSTORM -> BUTTON_GRADIENT_HAIL;
+            default -> BUTTON_GRADIENT_DEFAULT;
+        };
     }
 
     public WeatherConditions getCondition() {

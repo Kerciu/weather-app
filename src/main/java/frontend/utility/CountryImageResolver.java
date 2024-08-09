@@ -5,6 +5,22 @@ public class CountryImageResolver {
 
     public static String getCountryImagePath(String countryName) {
         return switch (countryName.toLowerCase()) {
+            case "afghanistan" -> flagsPath + "afghanistan.png";
+            case "american samoa" -> flagsPath + "american-samoa.png";
+            case "aruba" -> flagsPath + "aruba.png";
+            case "bonaire" -> flagsPath + "bonaire.png";
+            case "bermuda" -> flagsPath + "bermuda.png";
+            case "british columbia" -> flagsPath + "british-columbia.png";  // Optional
+            case "british virgin islands" -> flagsPath + "british-virgin-islands.png";
+            case "curaçao" -> flagsPath + "curaçao.png";
+            case "hong kong" -> flagsPath + "hong-kong.png";
+            case "montenegro" -> flagsPath + "montenegro.png";
+            case "niue" -> flagsPath + "niue.png";
+            case "northern cyprus" -> flagsPath + "northern-cyprus.png";
+            case "palestine" -> flagsPath + "palestine.png";
+            case "puerto rico" -> flagsPath + "puerto-rico.png";
+            case "scotland" -> flagsPath + "scotland.png";  // Optional
+            case "sahrawi arab democratic republic" -> flagsPath + "sahrawi-arab-democratic-republic.png";
             case "albania" -> flagsPath + "albania.png";
             case "algeria" -> flagsPath + "algeria.png";
             case "andorra" -> flagsPath + "andorra.png";
@@ -32,7 +48,7 @@ public class CountryImageResolver {
             case "bulgaria" -> flagsPath + "bulgaria.png";
             case "burkina faso" -> flagsPath + "burkina-faso.png";
             case "burundi" -> flagsPath + "burundi.png";
-            case "cabo verde" -> flagsPath + "cabo-verde.png";
+            case "cape verde" -> flagsPath + "cape-verde.png";
             case "cambodia" -> flagsPath + "cambodia.png";
             case "cameroon" -> flagsPath + "cameroon.png";
             case "canada" -> flagsPath + "canada.png";
@@ -42,7 +58,7 @@ public class CountryImageResolver {
             case "china" -> flagsPath + "china.png";
             case "colombia" -> flagsPath + "colombia.png";
             case "comoros" -> flagsPath + "comoros.png";
-            case "congo" -> flagsPath + "congo.png";
+            case "congo republic" -> flagsPath + "republic-of-the-congo.png";
             case "costa rica" -> flagsPath + "costa-rica.png";
             case "croatia" -> flagsPath + "croatia.png";
             case "cuba" -> flagsPath + "cuba.png";
@@ -60,7 +76,7 @@ public class CountryImageResolver {
             case "equatorial guinea" -> flagsPath + "equatorial-guinea.png";
             case "eritrea" -> flagsPath + "eritrea.png";
             case "estonia" -> flagsPath + "estonia.png";
-            case "eswatini" -> flagsPath + "eswatini.png";
+            case "eswatini" -> flagsPath + "swaziland.png";
             case "ethiopia" -> flagsPath + "ethiopia.png";
             case "fiji" -> flagsPath + "fiji.png";
             case "finland" -> flagsPath + "finland.png";
@@ -70,6 +86,7 @@ public class CountryImageResolver {
             case "georgia" -> flagsPath + "georgia.png";
             case "germany" -> flagsPath + "germany.png";
             case "ghana" -> flagsPath + "ghana.png";
+            case "gibraltar" -> flagsPath + "gibraltar.png";
             case "greece" -> flagsPath + "greece.png";
             case "grenada" -> flagsPath + "grenada.png";
             case "guatemala" -> flagsPath + "guatemala.png";
@@ -131,7 +148,7 @@ public class CountryImageResolver {
             case "niger" -> flagsPath + "niger.png";
             case "nigeria" -> flagsPath + "nigeria.png";
             case "north korea" -> flagsPath + "north-korea.png";
-            case "north macedonia" -> flagsPath + "north-macedonia.png";
+            case "north macedonia" -> flagsPath + "republic-of-macedonia.png";
             case "norway" -> flagsPath + "norway.png";
             case "oman" -> flagsPath + "oman.png";
             case "pakistan" -> flagsPath + "pakistan.png";
@@ -192,6 +209,7 @@ public class CountryImageResolver {
             case "uruguay" -> flagsPath + "uruguay.png";
             case "uzbekistan" -> flagsPath + "uzbekistan.png";
             case "vanuatu" -> flagsPath + "vanuatu.png";
+            case "vatican city" -> flagsPath + "vatican-city.png";
             case "venezuela" -> flagsPath + "venezuela.png";
             case "vietnam" -> flagsPath + "vietnam.png";
             case "yemen" -> flagsPath + "yemen.png";

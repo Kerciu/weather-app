@@ -13,7 +13,7 @@ public class WeatherCondDescriptionMaker {
 
     private static void setLabelAttributes(JLabel descriptionLabel)
     {
-        descriptionLabel.setBounds(0, 405, 450, 36);
+        descriptionLabel.setBounds(0, 405, 450, 46);
         descriptionLabel.setFont(new Font("Dialog", Font.PLAIN, 32));
         descriptionLabel.setHorizontalAlignment(SwingConstants.CENTER);
     }

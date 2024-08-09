@@ -108,6 +108,9 @@ public class AppGUI extends JFrame {
     {
         getContentPane().removeAll();
 
+        generateGradientBackground(cond);
+        setLayout(null);
+
         generateWeatherCondition(cond);
         generateHumidityInformation();
         generateWindSpeedInformation();
@@ -146,9 +149,11 @@ public class AppGUI extends JFrame {
     private void generateGradientBackground(WeatherConditions condition)
     {
         drawAppropriateGUIColor(condition);
-        GradientPanel gradientBackground = new GradientPanel(
-                new GradientGenerator(new Color(0xFFDA76), new Color(0xFF8C9E))
-        );
+        Color[] gradientColors = GUIColors.getColorPalette();
+
+        GradientGenerator gradientGenerator = new GradientGenerator(gradientColors[0], gradientColors[1], gradientColors[2], gradientColors[3]);
+        GradientPanel gradientBackground = new GradientPanel(gradientGenerator);
+
         setContentPane(gradientBackground);
     }
 

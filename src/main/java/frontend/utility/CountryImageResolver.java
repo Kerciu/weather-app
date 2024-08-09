@@ -215,7 +215,7 @@ public class CountryImageResolver {
             case "yemen" -> flagsPath + "yemen.png";
             case "zambia" -> flagsPath + "zambia.png";
             case "zimbabwe" -> flagsPath + "zimbabwe.png";
-            default -> flagsPath + "poland.png";
+            default -> "assets/images/utils/question-mark.png";
         };
     }
 }

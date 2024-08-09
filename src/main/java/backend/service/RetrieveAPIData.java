@@ -36,6 +36,7 @@ public class RetrieveAPIData {
         String country = (String) locationJsonArray.get("country");
         String location = constructLocationName(locationJsonArray, country);
 
+        country = (country != null ? country : "N/A");
 
         return new LocationData(location, country);
     }

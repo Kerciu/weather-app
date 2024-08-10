@@ -4,6 +4,7 @@ import main.java.backend.model.WeatherConditions;
 import main.java.backend.service.RetrieveAPIData;
 import main.java.frontend.components.*;
 import main.java.frontend.text.*;
+import main.java.frontend.utility.ColorConstants;
 import main.java.frontend.utility.CountryImageResolver;
 import main.java.frontend.utility.WeatherStateResolver;
 import org.json.simple.JSONObject;
@@ -67,7 +68,7 @@ public class AppGUI extends JFrame {
     private void generateSearchButtonComponent()
     {
         String buttonImagePath = "assets/images/utils/loupe.png";
-        Color[] colors = (GUIColors != null) ? GUIColors.getButtonGradientColors() : new Color[]{new Color(0xF8EDE3), new Color(0xDFD3C3)};
+        Color[] colors = (GUIColors != null) ? GUIColors.getButtonGradientColors() : ColorConstants.BUTTON_GRADIENT_DEFAULT;
 
         searchButton = SearchField.createSearchButton(buttonImagePath, colors[0], colors[1]);
         searchButton.addActionListener(createButtonActionListener());
@@ -163,7 +164,7 @@ public class AppGUI extends JFrame {
     private void drawAppropriateGUIColor(WeatherConditions condition)
     {
         // default new Color(0xFFDA76), new Color(0xFF8C9E)
-            GUIColors = new ColorClimate(condition);
+            GUIColors = new ColorClimate(condition, (double) weatherData.get("temperature"));
     }
 
     private void generateWeatherCondition(WeatherConditions condition)

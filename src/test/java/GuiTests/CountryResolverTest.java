@@ -24,13 +24,13 @@ public class CountryResolverTest {
 
     @Test
     public void testGetCountryImagePathForNonExistentCountry() {
-        assertEquals("assets/images/countries/poland.png", CountryImageResolver.getCountryImagePath("Atlantis"));
-        assertEquals("assets/images/countries/poland.png", CountryImageResolver.getCountryImagePath("Wakanda"));
+        assertEquals("assets/images/utils/question-mark.png", CountryImageResolver.getCountryImagePath("Atlantis"));
+        assertEquals("assets/images/utils/question-mark.png", CountryImageResolver.getCountryImagePath("Wakanda"));
     }
 
     @Test
     public void testGetCountryImagePathForEmptyString() {
-        assertEquals("assets/images/countries/poland.png", CountryImageResolver.getCountryImagePath(""));
+        assertEquals("assets/images/utils/question-mark.png", CountryImageResolver.getCountryImagePath(""));
     }
 
     @Test

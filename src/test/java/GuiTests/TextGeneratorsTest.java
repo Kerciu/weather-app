@@ -25,7 +25,7 @@ public class TextGeneratorsTest {
         assertEquals(0, bounds.x, "X should be 0");
         assertEquals(405, bounds.y, "Y should be 405");
         assertEquals(450, bounds.width, "Width should be 450");
-        assertEquals(36, bounds.height, "Height should be 36");
+        assertEquals(46, bounds.height, "Height should be 46");
 
         assertEquals("Dialog", label.getFont().getName());
         assertEquals(Font.PLAIN, label.getFont().getStyle());

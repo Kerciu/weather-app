@@ -10,7 +10,7 @@ public class SearchField {
     public static JTextField createSearchField()
     {
         JTextField searchTextField = new GradientTextField(
-            new GradientGenerator(new Color(0xF8EDE3), new Color(0xDFD3C3))
+                new GradientGenerator(new Color(0xF8EDE3), new Color(0xDFD3C3))
         );
         addSearchFieldAttributes(searchTextField);
 

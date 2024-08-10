@@ -12,7 +12,7 @@ public class GeocodingService {
         return (JSONArray) response.get("results");
     }
 
-    private static String buildLocationURL(String locationName) {
+    public static String buildLocationURL(String locationName) {
         return "https://geocoding-api.open-meteo.com/v1/search?name=" + locationName +
                 "&count=10&language=en&format=json";
     }

@@ -11,6 +11,16 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 public class GeocodingServiceTest {
+    private static JSONArray testCoordinatesArray;
+
+    public static void setTestCoordinatesArray(JSONArray coordinatesArray) {
+        testCoordinatesArray = coordinatesArray;
+    }
+
+    public static JSONArray getGeographicCoordinates(String locationName) {
+        return testCoordinatesArray;
+    }
+
     @org.junit.Test
     public void testBuildLocationURL() {
         String locationName = "Los Angeles";

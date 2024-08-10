@@ -8,6 +8,16 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 public class WeatherServiceTest {
+    private static WeatherData testWeatherData;
+
+    public static void setTestWeatherData(WeatherData weatherData) {
+        testWeatherData = weatherData;
+    }
+
+    public static WeatherData getWeatherData(double latitude, double longitude) {
+        return testWeatherData;
+    }
+
     @Test
     public void testGetWeatherData() {
         double latitude = 52.2297;

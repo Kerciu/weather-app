@@ -85,5 +85,3 @@ For questions, feedback, or support:
 - **Support**: Email [kacper.gorski.contact@gmail.com](mailto:kacper.gorski.contact@gmail.com)
 
 For issues, please open a GitHub Issue. 🚀
-
-For issues, please open a GitHub Issue. 🚀

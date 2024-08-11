@@ -55,7 +55,7 @@ public class AppGUI extends JFrame {
         generateWeatherCondition(null);
         generateHumidityInformation();
         generateWindSpeedInformation();
-        if (locationData != null) generateLocationInformation();
+        if (locationData != null) generateLocationInformation(null);
         generateSearchButtonComponent();
     }
 
@@ -118,7 +118,7 @@ public class AppGUI extends JFrame {
         generateWeatherCondition(cond);
         generateHumidityInformation();
         generateWindSpeedInformation();
-        generateLocationInformation();
+        generateLocationInformation(cond);
 
         add(searchField);
         generateSearchButtonComponent();
@@ -210,7 +210,7 @@ public class AppGUI extends JFrame {
         add(windSpeedText);
     }
 
-    private void generateLocationInformation()
+    private void generateLocationInformation(WeatherConditions condition)
     {
         String locationName = (locationData != null) ? parseLocationName() : "N/A";
         String countryName = (locationData != null) ? parseCountryName() : "N/A";
@@ -219,7 +219,7 @@ public class AppGUI extends JFrame {
         ImageLabelGenerator countryImageDisplayer = new ImageLabelGenerator(fileHandle, new Rectangle(0, 56, 74, 66));
 
         JLabel countryFlagImage = countryImageDisplayer.createImageLabel();
-        JLabel locationText = LocationTextGenerator.createDescriptionLabel(locationName+ ", " + countryName);
+        JLabel locationText = LocationTextGenerator.createDescriptionLabel(locationName+ ", " + countryName, condition);
 
         add(countryFlagImage);
         add(locationText);

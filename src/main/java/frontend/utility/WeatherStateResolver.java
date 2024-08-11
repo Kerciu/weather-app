@@ -7,7 +7,7 @@ public class WeatherStateResolver {
 
     public static String getWeatherImagePath(WeatherConditions cond) {
         return switch (cond) {
-            case SUNNY -> assetsPath + "sunny.png";
+            case SUNNY -> resolveSunnyState();
             case CLOUDY -> assetsPath + "cloudy.png";
             case FOG -> assetsPath + "foggy.png";
             case DRIZZLE -> assetsPath + "drizzle.png";
@@ -38,5 +38,10 @@ public class WeatherStateResolver {
             case HAIL_THUNDERSTORM -> "Hail with Thunderstorm";
             default -> "Unidentified Weather Condition";
         };
+    }
+
+    private static String resolveSunnyState()
+    {
+        return assetsPath + "sunny.png";
     }
 }

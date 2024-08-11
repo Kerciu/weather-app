@@ -1,5 +1,6 @@
 package test.java.GuiTests;
 
+import main.java.backend.model.WeatherConditions;
 import main.java.frontend.text.*;
 import org.junit.jupiter.api.Test;
 
@@ -103,8 +104,8 @@ public class TextGeneratorsTest {
     public void testLocationText()
     {
         String longFranceDesc = "Nice, Alpes-Maritimes département, Provence–Alpes–Côte-d'Azur région, southeastern France";
-        JLabel labelDefault = LocationTextGenerator.createDescriptionLabel("Donetsk, Ukraine");
-        JLabel labelWrapped = LocationTextGenerator.createDescriptionLabel(longFranceDesc);
+        JLabel labelDefault = LocationTextGenerator.createDescriptionLabel("Donetsk, Ukraine", WeatherConditions.HAIL_THUNDERSTORM);
+        JLabel labelWrapped = LocationTextGenerator.createDescriptionLabel(longFranceDesc, WeatherConditions.SUNNY);
 
         assertTrue(labelWrapped.getText().contains("<br>"));
         assertFalse(labelDefault.getText().contains("<br>"));

@@ -1,19 +1,21 @@
 package main.java.frontend.text;
 
+import main.java.backend.model.WeatherConditions;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class LocationTextGenerator {
-    public static JLabel createDescriptionLabel(String description)
+    public static JLabel createDescriptionLabel(String description, WeatherConditions cond)
     {
         description = createBreakPoint(description);
 
         JLabel locationLabel = new JLabel(description);
-        setLabelAttributes(locationLabel);
+        setLabelAttributes(locationLabel, cond);
         return locationLabel;
     }
 
-    private static void setLabelAttributes(JLabel locationLabel)
+    private static void setLabelAttributes(JLabel locationLabel, WeatherConditions cond)
     {
         int x_axis = 65;
         int y_axis = (locationLabel.getText().contains("<br>")) ? 58 : 67;
@@ -22,6 +24,13 @@ public class LocationTextGenerator {
 
         locationLabel.setBounds(x_axis, y_axis, width, height);
         locationLabel.setFont(new Font("Dialog", Font.PLAIN, 18));
+        locationLabel.setForeground(
+                switch (cond)
+                {
+                    case THUNDERSTORM, HAIL_THUNDERSTORM, DOWNPOUR -> Color.WHITE;
+                    default -> Color.BLACK;
+                }
+        );
         locationLabel.setHorizontalAlignment(SwingConstants.LEFT);
     }
 

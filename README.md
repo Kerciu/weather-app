@@ -4,37 +4,6 @@
 
 A Java desktop application that provides real-time weather information, including temperature, humidity, wind speed, and weather conditions, for any location in the world. The app features a dynamic GUI that adapts to current weather conditions and displays relevant weather icons, the full location name, and the country's flag. 🖥️🌍
 
-## 🔧 Requirements
-
-- Java 8+ ☕️
-- Internet connection 🌐
-
-## 📥 Installation
-
-1. **Clone the repository**:
-
-   ```bash
-   git clone https://github.com/Kerciu/weather-app.git
-   ```
-
-2. **Navigate to the project directory**:
-
-   ```bash
-   cd weather-app-main
-   ```
-
-3. **Compile the project**:
-
-   ```bash
-   javac -d out/production/WeatherApp src/main/java/**/*.java
-   ```
-
-4. **Run the application**:
-
-   ```bash
-   java -cp out/production/WeatherApp mainclass.MainClass
-   ```
-
 ## 📝 Notes
 
 - Ensure you have Java 8 or later installed on your system. 🌟
@@ -78,7 +47,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENCE) file 
 ## 📬 Contact
 For questions, feedback, or support:
 - **Author**: Kacper Górski
-- **LinkedIn**: [Kacper Górski](https://www.linkedin.com/in/kacper-gorski)
+- **LinkedIn**: [Kacper Górski](https://www.linkedin.com/in/kacper-gorski-se)
 - **Instagram**: [@kxcper.gorski](https://www.instagram.com/kxcper.gorski)
 - **X**: [@Kerciuu](https://x.com/Kerciuu)
 - **GitHub**: [Kerciu](https://github.com/Kerciu)
